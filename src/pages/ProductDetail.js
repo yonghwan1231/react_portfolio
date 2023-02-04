@@ -29,7 +29,6 @@ function ProductDetail(props) {
 
   function watchedData() {
     if (!currentItem) return;
-    !localStorage.getItem('watched') && localStorage.setItem('watched', '[]');
     let watchedList = JSON.parse(localStorage.getItem('watched'));
     watchedList.unshift(currentItem.name);
     watchedList = Array.from(new Set(watchedList));

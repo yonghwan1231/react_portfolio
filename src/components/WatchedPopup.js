@@ -8,6 +8,7 @@ export function WatchedPopup() {
   const [watchedItem, setWatchedItem] = useState()
 
   function justWatched() {
+    !localStorage.getItem('watched') && localStorage.setItem('watched', '[]')
     product.forEach((el) => {
       const item = el.itemList.find((el) => {
         return el.name === JSON.parse(localStorage.getItem('watched'))[0]
