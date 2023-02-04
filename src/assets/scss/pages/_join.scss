@@ -1,0 +1,270 @@
+.join {
+  h3 {
+    display: flex;
+    align-items: center;
+    height: 60px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    tr {
+      border-top: 1px solid #ddd;
+
+      &:last-of-type {
+        border-bottom: 1px solid #ddd;
+      }
+
+      @include mobile {
+        display: flex;
+        flex-direction: column;
+      }
+
+      td {
+        position: relative;
+        padding: 12px;
+
+        &:first-of-type {
+          width: 200px;
+          background-color: #f8f8f8;
+
+          .input-level {
+            font-size: 14px;
+            color: #777;
+
+            &.required {
+              color: red;
+            }
+          }
+
+          @include mobile {
+            width: 100%;
+            background-color: #fff;
+          }
+        }
+
+        @include mobile {
+          padding: 8px;
+          width: 100%;
+        }
+
+        input,
+        select {
+          width: 240px;
+          min-height: 32px;
+          border: 1px solid #ccc;
+
+          &[type="checkbox"] {
+            width: unset;
+            height: unset;
+            min-height: unset;
+          }
+
+          @include mobile {
+            width: 100%;
+          }
+        }
+
+        input {
+          padding-left: 8px;
+        }
+
+        .desc {
+          color: red;
+          font-size: 12px;
+          margin-top: 10px;
+        }
+      }
+
+      &.user-id {
+        td {
+          @include mobile {
+            display: flex;
+            flex-wrap: wrap;
+
+            input {
+              flex-grow: 1;
+              width: 0px;
+            }
+
+            p {
+              width: 100%;
+            }
+          }
+        }
+
+        .id-chk-button {
+          width: 100px;
+          min-height: 32px;
+          border: none;
+          outline: none;
+          vertical-align: bottom;
+
+          @include mobile {
+            min-width: 100px;
+          }
+        }
+      }
+
+      &.user-hp {
+        td {
+          @include mobile {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+
+            .hyphen {
+              margin: 0 4px;
+            }
+          }
+
+          input,
+          select {
+            width: 101px;
+
+            @include mobile {
+              flex-grow: 1;
+              width: 60px;
+            }
+          }
+
+          p {
+            @include mobile {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      &.user-addr {
+        td {
+          height: auto;
+
+          ul li {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            width: 340px;
+
+            @include mobile {
+              width: 100%;
+            }
+
+            input {
+              width: 340px;
+
+              @include mobile {
+                width: 100%;
+              }
+            }
+
+            &:first-of-type {
+              margin-top: 0;
+
+              input {
+                flex-basis: 0;
+                flex-grow: 1;
+              }
+
+              button {
+                flex-shrink: 0;
+                flex-grow: 1;
+                max-width: 100px;
+                border: none;
+              }
+            }
+          }
+
+          .post-wrap {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            width: 480px !important;
+            max-width: 100vw;
+            height: auto !important;
+            // border: 1px solid red;
+
+            .button-close {
+              top: 0;
+              right: 0;
+            }
+
+            .find-post {
+              margin-top: 18px;
+              width: 100%;
+              border: 1px solid;
+            }
+          }
+        }
+      }
+
+      &.terms {
+        td:last-of-type {
+          display: flex;
+
+          @include mobile {
+            flex-direction: column;
+          }
+
+          ul {
+            flex-basis: 200px;
+            flex-grow: 1;
+
+            @include mobile {
+              width: 100%;
+            }
+
+            &:first-of-type {
+              margin-right: 12px;
+
+              @include mobile {
+                margin: 0;
+              }
+            }
+
+            li {
+              @include mobile {
+                margin-bottom: 12px;
+              }
+
+              &:last-of-type {
+                margin-top: 8px;
+                height: 200px;
+                border: 1px solid #ccc;
+                overflow-y: scroll;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .user-reg {
+    display: flex;
+    justify-content: center;
+
+    input {
+      margin: 12px;
+      width: 180px;
+      height: 60px;
+      font-size: 18px;
+      border: 1px solid #000;
+      background-color: #fff;
+
+      &:last-of-type {
+        border: none;
+        color: #fff;
+        background-color: #000;
+      }
+
+      @include mobile {
+        font-size: 16px;
+        height: 52px;
+      }
+    }
+  }
+}

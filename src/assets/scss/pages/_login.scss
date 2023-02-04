@@ -1,0 +1,99 @@
+.login {
+  .page-contents-wrap {
+    margin-top: 32px;
+
+    .login-input-wrap {
+      display: flex;
+
+      .login-input-box {
+        display: flex;
+        flex-direction: column;
+
+        @include mobile {
+          width: 100%;
+        }
+
+        input {
+          display: block;
+          padding-left: 8px;
+          width: 400px;
+          height: 40px;
+          border: 1px solid #ccc;
+
+          @include mobile {
+            flex-grow: 1;
+            width: auto;
+          }
+
+          &:first-of-type {
+            margin-bottom: 12px;
+          }
+        }
+      }
+
+      .login-button {
+        margin-left: 12px;
+        width: 120px;
+        font-size: 18px;
+
+        @include mobile {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .login-set-wrap {
+    display: flex;
+    margin-top: 16px;
+    font-size: 14px;
+
+    .find-account {
+      margin-left: 12px;
+      padding-left: 12px;
+      border-left: 1px solid #ccc;
+    }
+  }
+
+  .login-join-wrap {
+    display: flex;
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid #ddd;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .login-join-txt {
+      width: 400px;
+
+      @include mobile {
+        width: 100%;
+      }
+
+      span {
+        display: block;
+        margin-top: 8px;
+        font-size: 14px;
+        color: #999;
+
+        @include mobile {
+          font-size: 12px;
+        }
+      }
+    }
+
+    .login-join-button {
+      margin-left: 12px;
+      width: 120px;
+
+      @include mobile {
+        margin: 16px 0 0 0;
+        width: 100%;
+        height: 48px;
+      }
+    }
+  }
+}

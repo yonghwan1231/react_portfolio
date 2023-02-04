@@ -1,0 +1,26 @@
+//base
+@import "./base/variable";
+@import "./base/common";
+
+//layout
+@import "./layout/header";
+@import "./layout/page_wrap";
+@import "./layout/footer";
+
+//page
+@import "./pages/home";
+@import "./pages/product";
+@import "./pages/product_detail";
+@import "./pages/event";
+@import "./pages/lookbook";
+@import "./pages/login";
+@import "./pages/join";
+@import "./pages/mypage_watched";
+@import "./pages/mypage_cart";
+@import "./pages/payment";
+@import "./pages/cs_center";
+
+//component
+@import "./component/button";
+@import "./component/watched";
+@import "./component/coupon";

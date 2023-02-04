@@ -1,0 +1,135 @@
+.mypage {
+  .page-contents-wrap {
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-color: #ccc;
+
+      @include mobile {
+        colgroup {
+          display: none;
+        }
+      }
+
+      tr {
+        border-bottom: 1px solid #ccc;
+
+        @include mobile {
+          display: flex;
+          //임시스타일
+          flex-wrap: wrap;
+          align-items: center;
+        }
+
+        th {
+          height: 40px;
+          font-weight: bold;
+
+          @include mobile {
+            display: none;
+          }
+        }
+
+        td {
+          padding: 8px;
+
+          @include mobile {
+            &:not(.cart-product-name) {
+              display: none;
+            }
+          }
+
+          &.cart-product-name {
+            @include mobile {
+              width: 100%;
+            }
+
+            .cart-contents-box {
+              justify-content: flex-start;
+
+              @include mobile {
+                min-height: 140px;
+              }
+
+              .cart-img-wrap {
+                margin-right: 16px;
+
+                img {
+                  height: 100px;
+                }
+              }
+
+              p span {
+                display: block;
+                font-size: 14px;
+                color: #999;
+                word-wrap: break-word;
+
+                &+strong {
+                  font-weight: normal;
+
+                  &.sale {
+                    color: red;
+                  }
+                }
+              }
+
+              &-mobile {
+                align-self: stretch;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: space-around;
+              }
+            }
+          }
+
+          .cart-contents-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &.sale {
+              color: red;
+            }
+
+            .cart-delete,
+            .cart-coupon {
+              width: 84px;
+              height: 40px;
+            }
+
+            .cart-delete {
+              @include mobile {
+                justify-self: flex-end;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .order-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .order-price {
+        margin: 24px 0;
+        font-size: 20px;
+        font-weight: bold;
+
+        .discount {
+          color: red;
+        }
+      }
+
+      .order-button button {
+        width: 200px;
+        height: 52px;
+        font-size: 20px;
+      }
+    }
+  }
+}
