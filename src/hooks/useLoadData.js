@@ -9,6 +9,7 @@ export function useLoadData() {
   let [axiosComplete, setAxiosComlete] = useState(false)
   let dispatch = useDispatch();
   let axiosReq = () => {
+    axios.defaults.withCredentials = true
     axios
       .all([
         axios.get('https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app/api/product'),

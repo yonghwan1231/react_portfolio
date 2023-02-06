@@ -36,6 +36,7 @@ export function usePushLike() {
       }
     })
 
+    axios.defaults.withCredentials = true
     axios.all([
       axios.post('https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app/api/like', { like: userCopy.like }, { withCredentials: true }),
       axios.post('https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app/api/product', { product: productCopy })
