@@ -11,9 +11,9 @@ export function useLoadData() {
   let axiosReq = () => {
     axios
       .all([
-        axios.get('https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app//api/product'),
-        axios.get('https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app//api/event'),
-        axios.get('https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app//api/lookbook')
+        axios.get('https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app/api/product'),
+        axios.get('https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app/api/event'),
+        axios.get('https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app/api/lookbook')
       ])
       .then(axios.spread((res1, res2, res3) => {
         dispatch(productAxios(res1.data))

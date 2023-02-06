@@ -159,7 +159,7 @@ function Join(props) {
                     onClick={() => {
                       if (!userId[1]) return alert('사용 불가능한 아이디 입니다.')
                       axios({
-                        url: 'https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app//api/dupChk',
+                        url: 'https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app/api/dupChk',
                         method: 'POST',
                         data: { userId: userId[0] }
                       })
@@ -305,7 +305,7 @@ function Join(props) {
               const chk = formChk(agreement1, agreement2, dupChk, userName, userId, userPw, userPwCfm, userEmail, userHp, agreement1, agreement2)
               if (chk) {
                 axios({
-                  url: 'https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app//api/join',
+                  url: 'https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app/api/join',
                   method: 'POST',
                   data: { userData }
                 })
