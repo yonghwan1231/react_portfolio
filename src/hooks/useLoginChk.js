@@ -13,14 +13,14 @@ export function useLoginChk() {
   const loginChk = () => {
     console.log('로그인체크 실행')
     axios({
-      url: 'http://localhost:8080/api/accesstoken',
+      url: 'https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app//api/accesstoken',
       method: 'GET',
       withCredentials: true
     })
       .then((res) => {
         console.log('로그인체크 응답성공')
         axios({
-          url: 'http://localhost:8080/api/refreshtoken',
+          url: 'https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app//api/refreshtoken',
           method: 'GET',
           withCredentials: true
         })

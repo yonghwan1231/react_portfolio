@@ -19,7 +19,7 @@ export function useAddCart() {
       let userCart = [...loginUser.cart]
       cartDupChk(userCart, data)
       axios({
-        url: 'http://localhost:8080/api/addcart',
+        url: 'https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app//api/addcart',
         method: 'POST',
         withCredentials: true,
         data: { cart: userCart }

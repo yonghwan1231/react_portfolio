@@ -8,7 +8,7 @@ export function useLogout() {
   const logout = (e) => {
     e.preventDefault()
     axios({
-      url: 'http://localhost:8080/api/logout',
+      url: 'https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app//api/logout',
       method: 'POST',
       withCredentials: true
     })
