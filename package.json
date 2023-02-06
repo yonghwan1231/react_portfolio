@@ -45,7 +45,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "http://yonghwan1231.github.io/portfolio",
+  "homepage": "http://yonghwan1231.github.io/portfolio/",
   "devDependencies": {
     "gh-pages": "^5.0.0"
   }
