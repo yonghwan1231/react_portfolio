@@ -1,0 +1,104 @@
+.slick-slider.slick-initialized {
+  .slider-item {
+    position: relative;
+    display: inline-flex !important;
+    justify-content: center;
+    align-items: center;
+    height: 31.25vw;
+    min-height: 420px;
+
+    @include mobile {
+      justify-content: flex-start;
+      align-items: flex-end;
+      height: 120vw;
+      color: white;
+
+      &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.5));
+        z-index: 1;
+        content: '';
+      }
+    }
+
+    .text-box {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+      z-index: 10;
+
+      &.color-white {
+        color: white;
+      }
+
+      @include mobile {
+        align-items: flex-start;
+        margin: 32px 12px;
+      }
+    }
+
+  }
+
+  @for $i from (1) to (4) {
+    .slider-item.num-#{$i} {
+      background: url('./assets/img/main_bg' +$i+'.jpg') center center / cover no-repeat;
+
+      @include mobile {
+        background: url('./assets/img/main_bg' +$i+'_mc.jpg') center center / cover no-repeat;
+      }
+    }
+  }
+
+  .slick-prev {
+    z-index: 1;
+    left: 30px;
+
+    @include mobile {
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  .slick-next {
+    right: 40px;
+
+    @include mobile {
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: 30px;
+    opacity: 0.5;
+    color: white;
+  }
+
+  .slick-dots {
+    display: flex;
+    justify-content: center;
+    bottom: 30px;
+    color: white;
+
+    @include mobile {
+      bottom: 4px;
+    }
+
+    li button:before {
+      color: white;
+    }
+
+    li.slick-active button:before {
+      color: white;
+    }
+  }
+}

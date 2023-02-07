@@ -2,14 +2,11 @@ import { useEffect, useState } from 'react'
 import { useNavigate, Link } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
 //--------------------------------------------------------//
-import { eventUpdate } from '../stores/event'
-import { priceFormat } from '../utils/priceFormat'
+import { eventUpdate } from '../stores/_reducerBundle'
+import { priceFormat } from '../utils/_utilsBunddle'
+import { MainSlider } from '../components/_ComponentBundle'
 
 function Main(props) {
-
-  // let lbLength = (document.querySelectorAll('.lookbook-wrap>ul>li').length) / 2;
-  // document.documentElement.style.setProperty('--lbLength', `-${lbLength / 5 * 100}%`);
-  // document.documentElement.style.setProperty('--lbLengthMobile', `-${lbLength / 2 * 100}%`);
 
   const dispatch = useDispatch()
   const productData = useSelector(state => { return state.product })
@@ -64,14 +61,19 @@ function Main(props) {
   }, [activeEventTab])
 
   useEffect(() => {
+    let lbLength = (document.querySelectorAll('.lookbook-wrap>ul>li').length) / 2;
+    document.documentElement.style.setProperty('--lbLength', `-${lbLength / 5 * 100}%`);
+    document.documentElement.style.setProperty('--lbLengthMobile', `-${lbLength / 2 * 100}%`);
+  }, [])
+
+  useEffect(() => {
     dispatch(eventUpdate())
   })
 
   return (
     <div className="page-wrap home">
-      <div>
-        <img src={require('../assets/img/main_bg1.jpg')} alt="" className='main-banner' />
-      </div>
+
+      <MainSlider></MainSlider>
 
       <section className="page-contents-wrap con-1">
         <div className="product-best-wrap">

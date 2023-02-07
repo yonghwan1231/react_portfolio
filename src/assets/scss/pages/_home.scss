@@ -137,7 +137,7 @@
       ul {
         display: flex;
         margin-top: 40px;
-        animation: lookbookFlow 5s infinite linear;
+        animation: lookbookFlow 40s infinite linear;
 
         &:hover {
           animation-play-state: paused;
@@ -257,15 +257,26 @@
         margin-top: 20px;
 
         ul {
-          padding-left: 18px;
-
           li {
-            position: relative;
+            display: flex;
+            align-items: center;
             margin-bottom: 8px;
-            list-style: square;
 
             @include mobile {
               font-size: 14px;
+            }
+
+            &::before {
+              display: inline-block;
+              margin-top: 3px;
+              margin-right: 12px;
+              font-size: 12px;
+              content: '■';
+
+              @include mobile {
+                font-size: 10px;
+                margin-right: 8px;
+              }
             }
 
             a {
@@ -277,8 +288,7 @@
             }
 
             .date {
-              position: absolute;
-              right: 0;
+              min-width: 100px;
             }
           }
         }
