@@ -53,6 +53,12 @@ function Main(props) {
   }
 
   useEffect(() => {
+    let lbLength = (document.querySelectorAll('.lookbook-wrap>ul>li').length) / 2;
+    document.documentElement.style.setProperty('--lbLength', `-${lbLength / 5 * 100}%`);
+    document.documentElement.style.setProperty('--lbLengthMobile', `-${lbLength / 2 * 100}%`);
+  }, [])
+
+  useEffect(() => {
     changeBestItem()
   }, [activeProductTab])
 
@@ -60,11 +66,6 @@ function Main(props) {
     changeEventList()
   }, [activeEventTab])
 
-  useEffect(() => {
-    let lbLength = (document.querySelectorAll('.lookbook-wrap>ul>li').length) / 2;
-    document.documentElement.style.setProperty('--lbLength', `-${lbLength / 5 * 100}%`);
-    document.documentElement.style.setProperty('--lbLengthMobile', `-${lbLength / 2 * 100}%`);
-  }, [])
 
   useEffect(() => {
     dispatch(eventUpdate())

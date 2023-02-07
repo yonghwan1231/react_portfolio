@@ -17,6 +17,7 @@ function Join(props) {
   const [userAddr, setUserAddr] = useState({ zonecode: '', addr: '', detailAddr: '' })
   const [agreement1, setAgreement1] = useState(false)
   const [agreement2, setAgreement2] = useState(false)
+  const [useSelectBox, setUseSelectBox] = useState(false)
 
   const userData = {
     name: userName[0],
@@ -119,6 +120,10 @@ function Join(props) {
   const userAddrHandler = (e) => {
     setUserAddr(e.target.value)
   }
+
+  useEffect(() => {
+    setUseSelectBox(false)
+  }, [useSelectBox])
 
   return (
     <div className="join page-wrap">
@@ -227,7 +232,11 @@ function Join(props) {
                   <select
                     data-order={0}
                     value={userHp[0][0]}
-                    onChange={userHpHandler}>
+                    disabled={useSelectBox}
+                    onChange={(e) => {
+                      userHpHandler(e)
+                      setUseSelectBox(true)
+                    }}>
                     <option value="">선택</option>
                     <option value="010">010</option>
                     <option value="011">011</option>

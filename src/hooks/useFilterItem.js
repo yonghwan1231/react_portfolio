@@ -86,6 +86,6 @@ export function useFilterItem() {
     priceFilter, setPriceFilter,
     priceMax,
     priceSetRange, setPriceSetRange,
-    setSortType
+    sortType, setSortType
   ]
 }

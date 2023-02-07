@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+//--------------------------------------------------------//
 import { priceRangeList, sortTypeList } from '../variables/variablesBundle'
 import { numberChk } from '../utils/_utilsBunddle'
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -7,12 +9,17 @@ export function FilterBox(props) {
 
   const navigate = useNavigate()
   const { pathname } = useLocation()
+  const [useSelectBox, setUseSelectBox] = useState(false)
 
   const { priceMax,
     priceSetRange, setPriceSetRange,
     priceFilter,
     setPriceFilter,
-    setSortType, setCurrentPage } = props;
+    sortType, setSortType, setCurrentPage } = props;
+
+  useEffect(() => {
+    setUseSelectBox(false)
+  }, [useSelectBox])
 
   return (
     <section className="filter-wrap">
@@ -81,8 +88,15 @@ export function FilterBox(props) {
         </form>
       </section>
 
-      <section className="sort-wrap" onChange={(e) => { setSortType(e.target.value) }}>
-        <select name="" id="">
+      <section className="sort-wrap">
+        <select
+          value={sortType}
+          disabled={useSelectBox}
+          onChange={(e) => {
+            setSortType(e.target.value)
+            setUseSelectBox(true)
+          }}
+        >
           {
             sortTypeList.map((el, idx) => {
               return (

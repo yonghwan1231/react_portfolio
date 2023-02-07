@@ -23,6 +23,8 @@ export function Payment() {
   const [userHp, setUserHp] = useState([['', '', ''], true])
   const [userAddr, setUserAddr] = useState({ zonecode: '', addr: '', detailAddr: '' })
 
+  const [useSelectBox, setUseSelectBox] = useState(false)
+
   function discount() {
     if (!usedCouponList.length > 0) return setTotalDiscount(0)
     let total = usedCouponList.reduce((acc, curr) => {
@@ -140,7 +142,11 @@ export function Payment() {
                 <select
                   data-order={0}
                   value={userHp[0][0]}
-                  onChange={userHpHandler}>
+                  disabled={useSelectBox}
+                  onChange={(e) => {
+                    userHpHandler(e)
+                    setUseSelectBox(true)
+                  }}>
                   <option value="">선택</option>
                   <option value="010">010</option>
                   <option value="011">011</option>

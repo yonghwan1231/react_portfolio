@@ -23,7 +23,7 @@ function Product() {
     priceFilter, setPriceFilter,
     priceMax,
     priceSetRange, setPriceSetRange,
-    setSortType] = useFilterItem()
+    sortType, setSortType] = useFilterItem()
 
   const [pageItem, pages, currentPage, setCurrentPage] = usePageNation(currentItem, 12)
 
@@ -31,7 +31,7 @@ function Product() {
     priceMax,
     priceSetRange, setPriceSetRange,
     priceFilter, setPriceFilter,
-    setSortType,
+    sortType, setSortType,
     setCurrentPage
   }
 

@@ -17,6 +17,7 @@ function ProductDetail(props) {
   const [currentItem, setCurrentItem] = useState()
   const [selectItem, setSelectItem] = useState([])
   const [totalPrice, setTotalPrice] = useState()
+  const [useSelectBox, setUseSelectBox] = useState(false)
   const addCart = useAddCart()
   const pushLike = usePushLike()
 
@@ -56,7 +57,6 @@ function ProductDetail(props) {
   }
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     setDetailPage(true);
     loadDetailItem(productData.product)
     return () => {
@@ -65,6 +65,7 @@ function ProductDetail(props) {
   }, [])
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     watchedData()
   }, [currentItem])
 
@@ -75,6 +76,10 @@ function ProductDetail(props) {
   useEffect(() => {
     loadDetailItem(productData.product)
   }, [productData])
+
+  useEffect(() => {
+    setUseSelectBox(false)
+  }, [useSelectBox])
 
   if (currentItem) return (
     <div className="product-detail page-wrap">
@@ -99,9 +104,10 @@ function ProductDetail(props) {
           <p className="product-info">
             <span>구매옵션</span>
             <select
-              name=""
-              id=""
+              value='옵션 선택'
+              disabled={useSelectBox}
               onChange={(e) => {
+                setUseSelectBox(true)
                 if (e.target.value !== 'none') {
                   let copy = [...selectItem]
                   let dupChk = copy.findIndex((el) => {
@@ -119,8 +125,7 @@ function ProductDetail(props) {
                   }
                   else return
                 }
-              }}
-              value='옵션 선택'>
+              }}>
               <option value='none'>옵션 선택</option>
               {
                 currentItem.option.map((el, idx) => {
