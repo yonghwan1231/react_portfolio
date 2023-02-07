@@ -13,7 +13,7 @@ root.render(
   <QueryClientProvider client={queryClient}>
     <CookiesProvider>
       <Provider store={store}>
-        <BrowserRouter basename={'https://yonghwan1231.github.io/portfolio'}>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <App />
         </BrowserRouter>
       </Provider>
