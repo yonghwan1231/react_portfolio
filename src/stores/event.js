@@ -18,8 +18,13 @@ let event = createSlice({
           copy.end.unshift(el)
           copy.ing.splice(idx, 1)
           eventAxios(copy)
-          axios.defaults.withCredentials = true
-          axios.post('https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app/api/event', copy)
+
+          axios({
+            url: 'https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app/api/event',
+            method: 'POST',
+            withCredentials: true,
+            data: copy,
+          })
             .then(() => {
               console.log('데이터 전송 완료')
             })
