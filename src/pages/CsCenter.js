@@ -73,12 +73,6 @@ function CsHistory() {
     <>
       <section className="page-contents-wrap">
         <table>
-          <colgroup>
-            <col width="10" />
-            <col width="70%" />
-            <col width="10%" />
-            <col width="10%" />
-          </colgroup>
           <thead>
             <tr>
               <th>NO</th>
@@ -97,7 +91,11 @@ function CsHistory() {
                       setViewPost(true)
                       setCurrentPost(el)
                       setEditPost(el)
-                    }}>{el.title}</td>
+                    }}>
+                      <div className='text-ellipsis'>
+                        <span>{el.title}</span>
+                      </div>
+                    </td>
                     <td>{el.name}</td>
                     <td>{el.date}</td>
                   </tr>

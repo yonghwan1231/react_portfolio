@@ -77,6 +77,24 @@
         th {
           font-weight: bold;
         }
+
+        th:nth-of-type(1) {
+          width: 10%;
+        }
+
+        th:nth-of-type(2) {
+          max-width: 70%;
+        }
+
+        th:nth-of-type(3) {
+          width: 10%;
+          min-width: 40px;
+        }
+
+        th:nth-of-type(4) {
+          width: 10%;
+          min-width: 80px;
+        }
       }
 
       tr {
@@ -85,8 +103,21 @@
         border-bottom: 1px solid #ccc;
 
         td:nth-of-type(2) {
-          text-align: left;
           cursor: pointer;
+
+          .text-ellipsis {
+            display: table;
+            table-layout: fixed;
+            width: 100%;
+            text-align: left;
+            white-space: nowrap;
+
+            span {
+              display: table-cell;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
         }
       }
 
