@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.9c732ff3.css",
-    "main.js": "/portfolio/static/js/main.395e588f.js",
+    "main.css": "/portfolio/static/css/main.468b2ac4.css",
+    "main.js": "/portfolio/static/js/main.2e6a1cef.js",
     "static/media/outer1_detail.jpg": "/portfolio/static/media/outer1_detail.0666e466b3ce4ff4f390.jpg",
+    "static/media/main_bg1.jpg": "/portfolio/static/media/main_bg1.c52b947cfc45f3bd9441.jpg",
+    "static/media/main_bg1_mc.jpg": "/portfolio/static/media/main_bg1_mc.c88bb7593862a25d8c45.jpg",
     "static/media/event1.jpg": "/portfolio/static/media/event1.a67e6fe5468c05388b7a.jpg",
-    "static/media/main_bg3.jpg": "/portfolio/static/media/main_bg3.e725151a4b9c1cdad4f1.jpg",
-    "static/media/main_bg1.jpg": "/portfolio/static/media/main_bg1.c592ca8e88e665f4dfec.jpg",
     "static/media/sweater3.jpg": "/portfolio/static/media/sweater3.644e28b9bf5366683e5c.jpg",
-    "static/media/main_bg2.jpg": "/portfolio/static/media/main_bg2.019c44e3d849e6744e36.jpg",
     "static/media/shirt1.jpg": "/portfolio/static/media/shirt1.8d57b37ad607ded79a98.jpg",
     "static/media/sweater2.jpg": "/portfolio/static/media/sweater2.7a9a5358da136f67069c.jpg",
     "static/media/event14.jpg": "/portfolio/static/media/event14.6710cb4cce3ff85f4608.jpg",
     "static/media/shirt5.jpg": "/portfolio/static/media/shirt5.50134f9ac22c89ba454c.jpg",
     "static/media/shirt2.jpg": "/portfolio/static/media/shirt2.fab6dec97cfe746debe0.jpg",
+    "static/media/main_bg2.jpg": "/portfolio/static/media/main_bg2.2b675bbb15b609d64e93.jpg",
     "static/media/sweater4.jpg": "/portfolio/static/media/sweater4.02ff1f3a13f4205fab3b.jpg",
     "static/media/outer10.jpg": "/portfolio/static/media/outer10.a3b533bc2c0a4d1c0d70.jpg",
     "static/media/shirt8.jpg": "/portfolio/static/media/shirt8.62bb926f8d19c9124c02.jpg",
@@ -54,6 +54,7 @@
     "static/media/event3.jpg": "/portfolio/static/media/event3.d137f5163e4080c9469d.jpg",
     "static/media/outer2.jpg": "/portfolio/static/media/outer2.487f4705d140ac9f15c2.jpg",
     "static/media/outer5.jpg": "/portfolio/static/media/outer5.790d22df1c83f0f36398.jpg",
+    "static/media/main_bg3.jpg": "/portfolio/static/media/main_bg3.9c0bd9a501037adce725.jpg",
     "static/media/sweater7.jpg": "/portfolio/static/media/sweater7.ff26114ae968fad20c4f.jpg",
     "static/media/shirt9.jpg": "/portfolio/static/media/shirt9.70def6f7c93283b5c6a9.jpg",
     "static/media/lookbook5.jpg": "/portfolio/static/media/lookbook5.3fe142547ae270ded234.jpg",
@@ -63,6 +64,7 @@
     "static/media/pants4.jpg": "/portfolio/static/media/pants4.b939fbe72fcb5da61b09.jpg",
     "static/media/pants5.jpg": "/portfolio/static/media/pants5.365036153d4abecadf58.jpg",
     "static/media/lookbook7.jpg": "/portfolio/static/media/lookbook7.86dd5b6f7cfd61a20514.jpg",
+    "static/media/main_bg2_mc.jpg": "/portfolio/static/media/main_bg2_mc.f4664d43a62ad07389a0.jpg",
     "static/media/pants10.jpg": "/portfolio/static/media/pants10.86b25e2b7c2c7c72040c.jpg",
     "static/media/outer13.jpg": "/portfolio/static/media/outer13.ec1f619ba8caa231f56f.jpg",
     "static/media/shirt3.jpg": "/portfolio/static/media/shirt3.3226d434f7d4ca51422f.jpg",
@@ -73,6 +75,7 @@
     "static/media/pants1.jpg": "/portfolio/static/media/pants1.5973360ac39f87bc82e7.jpg",
     "static/media/lookbook8.jpg": "/portfolio/static/media/lookbook8.f109d28d03326bf46914.jpg",
     "static/media/event4.jpg": "/portfolio/static/media/event4.4d7b2a750f65a840b77f.jpg",
+    "static/media/main_bg3_mc.jpg": "/portfolio/static/media/main_bg3_mc.a2e18389af8293697d63.jpg",
     "static/media/event11.jpg": "/portfolio/static/media/event11.3ee06553372d05ff0be3.jpg",
     "static/media/event16.jpg": "/portfolio/static/media/event16.546f6d9d49c5df220ba8.jpg",
     "static/media/lookbook1.jpg": "/portfolio/static/media/lookbook1.b9023a51a21deff0b4f2.jpg",
@@ -82,12 +85,16 @@
     "static/media/event7.jpg": "/portfolio/static/media/event7.21a53688339c4194cd9e.jpg",
     "static/media/event5.jpg": "/portfolio/static/media/event5.f97d2b92ebab8f537d42.jpg",
     "static/media/event2.jpg": "/portfolio/static/media/event2.ec2dae5254a9c9a329c6.jpg",
+    "static/media/slick.svg": "/portfolio/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/portfolio/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/portfolio/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/portfolio/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/portfolio/index.html",
-    "main.9c732ff3.css.map": "/portfolio/static/css/main.9c732ff3.css.map",
-    "main.395e588f.js.map": "/portfolio/static/js/main.395e588f.js.map"
+    "main.468b2ac4.css.map": "/portfolio/static/css/main.468b2ac4.css.map",
+    "main.2e6a1cef.js.map": "/portfolio/static/js/main.2e6a1cef.js.map"
   },
   "entrypoints": [
-    "static/css/main.9c732ff3.css",
-    "static/js/main.395e588f.js"
+    "static/css/main.468b2ac4.css",
+    "static/js/main.2e6a1cef.js"
   ]
 }
