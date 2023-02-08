@@ -1,13 +1,16 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom"
 import { useSelector, } from 'react-redux'
 
 export function MainLookbook() {
 
-  let lbLength = (document.querySelectorAll('.lookbook-wrap>ul>li').length) / 2;
-  document.documentElement.style.setProperty('--lbLength', `-${lbLength / 5 * 100}%`);
-  document.documentElement.style.setProperty('--lbLengthMobile', `-${lbLength / 2 * 100}%`);
-
   const lookbookData = useSelector(state => { return state.lookbook })
+
+  useEffect(() => {
+    let lbLength = (document.querySelectorAll('.lookbook-wrap>ul>li').length) / 2;
+    document.documentElement.style.setProperty('--lbLength', `-${lbLength / 5 * 100}%`);
+    document.documentElement.style.setProperty('--lbLengthMobile', `-${lbLength / 2 * 100}%`);
+  })
 
   return (
     <div className="lookbook-wrap">
