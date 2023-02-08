@@ -35,13 +35,14 @@ export function useFilterItem() {
         return
       }
     })
+    //여기까지 선택카테고리 혹은 검색키워드에 따라 상품필터 
     maxValue = targetData.map((el) => {
       return el.price
     })
     if (priceFilter.range.length !== 0) {
       targetData = targetData.filter(el => priceFilter.range[0] <= el.price && el.price <= priceFilter.range[1])
     }
-
+    //여기까지 위 상품목록에서 가격필터 적용
     targetData.sort((a, b) => {
       switch (sortType) {
         case 'name':
@@ -57,6 +58,7 @@ export function useFilterItem() {
           return b[sortType] - a[sortType]
       }
     })
+    //여기까지 위 상품목록에서 정렬타입 적용
     setCurrentItem(targetData)
     setPriceMax(Math.max(...maxValue))
   }, [id, priceFilter, sortType, searchWord, currentCategory])
