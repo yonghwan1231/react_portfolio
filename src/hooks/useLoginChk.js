@@ -18,7 +18,7 @@ export function useLoginChk() {
       withCredentials: true
     })
       .then((res) => {
-        console.log('로그인체크 응답성공')
+        console.log('로그인체크 완료')
         axios({
           url: 'https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app/api/refreshtoken',
           method: 'GET',
@@ -26,11 +26,11 @@ export function useLoginChk() {
         })
           .then(() => {
             !loginState && dispatch(loadUserData({ login: true, ...res?.data }))
-            console.log('Access Token Recrated')
+            console.log('로그인 연장')
           })
       })
       .catch(() => {
-        console.log('로그인체크 응답실패')
+        console.log('로그인체크 실패')
         dispatch(loadUserData({ login: false }))
       })
   }
