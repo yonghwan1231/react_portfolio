@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
 //--------------------------------------------------------//
-import { priceFormat } from '../utils/_utilsBunddle'
+import { priceFormat, priceSum } from '../utils/_utilsBunddle'
 import { useChangeCart, useDeleteCart } from '../hooks/_customHookBundle'
 import { setOrderList } from '../stores/_reducerBundle'
 
@@ -13,7 +13,6 @@ export function MyCart() {
   const loginUser = useSelector(state => { return state.loginUser })
   const localCart = useSelector(state => { return state.localCart })
   const [cartList, setCartList] = useState([])
-  const [totalPrice, setTotalPrice] = useState(0)
   const [totalDiscount, setTotalDiscount] = useState(0)
 
   const [openCouponBox, setOpenCouponBox] = useState(false)
@@ -63,21 +62,10 @@ export function MyCart() {
     setCartList(copy)
   }
 
-  function priceSum() {
-    let totalCount = cartList.reduce((acc, curr) => {
-      return acc + curr.price * curr.count
-    }, 0)
-    setTotalPrice(totalCount)
-  }
-
   useEffect(() => {
     cartData()
     if (loginUser.login) setCouponList([...loginUser.coupon])
   }, [loginUser, localCart])
-
-  useEffect(() => {
-    priceSum()
-  }, [cartList])
 
   useEffect(() => {
     discount()
@@ -256,7 +244,7 @@ export function MyCart() {
         </table>
         <ul className="order-wrap">
           <li className="order-price">
-            총 {priceFormat(totalPrice - totalDiscount)}원
+            총 {priceFormat(priceSum(cartList) - totalDiscount)}원
             {
               totalDiscount > 0
                 ? <span className='discount'>(-{priceFormat(totalDiscount)})</span>

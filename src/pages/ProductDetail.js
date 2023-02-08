@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react"
 import { useParams, useNavigate, useOutletContext } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
 //--------------------------------------------------------//
-import { priceFormat } from '../utils/_utilsBunddle'
+import { priceFormat, priceSum, watchedSave } from '../utils/_utilsBunddle'
 import { useAddCart, usePushLike } from '../hooks/_customHookBundle'
 import { setOrderList } from '../stores/_reducerBundle'
 
@@ -10,13 +10,12 @@ function ProductDetail(props) {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const { id } = useParams()
-  const { setDetailPage } = useOutletContext()
   const productData = useSelector(state => { return state.product })
   const loginUser = useSelector(state => { return state.loginUser })
+  const { id } = useParams()
+  const { setDetailPage } = useOutletContext()
   const [currentItem, setCurrentItem] = useState()
   const [selectItem, setSelectItem] = useState([])
-  const [totalPrice, setTotalPrice] = useState()
   const [useSelectBox, setUseSelectBox] = useState(false)
   const addCart = useAddCart()
   const pushLike = usePushLike()
@@ -25,18 +24,7 @@ function ProductDetail(props) {
   const reviewRef = useRef()
   const qaRef = useRef()
   const tabRef = [detailInfoRef, reviewRef, qaRef]
-
   const tabMenuList = ['detail-info', 'review', 'qa']
-
-  function watchedData() {
-    if (!currentItem) return;
-    let watchedList = JSON.parse(localStorage.getItem('watched'));
-    watchedList.unshift(currentItem.name);
-    watchedList = Array.from(new Set(watchedList));
-    watchedList.length = 12
-    localStorage.setItem('watched', JSON.stringify(watchedList));
-    props.setRender(!props.render);
-  }
 
   function loadDetailItem(data) {
     data.forEach((el) => {
@@ -49,37 +37,27 @@ function ProductDetail(props) {
     })
   }
 
-  function priceSum(data) {
-    let totalCount = data.reduce((acc, curr) => {
-      return acc + curr.count
-    }, 0)
-    return totalCount * currentItem?.price
-  }
-
   useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 0);
     setDetailPage(true);
-    loadDetailItem(productData.product)
     return () => {
       setDetailPage(false);
     }
   }, [])
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-    watchedData()
-  }, [currentItem])
-
-  useEffect(() => {
-    setTotalPrice(priceSum(selectItem))
-  }, [currentItem, selectItem])
+    setUseSelectBox(false)
+  }, [useSelectBox])
 
   useEffect(() => {
     loadDetailItem(productData.product)
   }, [productData])
 
   useEffect(() => {
-    setUseSelectBox(false)
-  }, [useSelectBox])
+    watchedSave(currentItem, props)
+  }, [currentItem])
 
   if (currentItem) return (
     <div className="product-detail page-wrap">
@@ -173,7 +151,7 @@ function ProductDetail(props) {
           </div>
           <p className="product-info">
             <span>결제금액</span>
-            <strong className="payment-amount">총 {priceFormat(totalPrice)}원</strong>
+            <strong className="payment-amount">총 {priceFormat(priceSum(selectItem))}원</strong>
           </p>
           <div className="product-info button-buy-wrap">
             <button

@@ -4,12 +4,13 @@ import { useSelector } from 'react-redux'
 //--------------------------------------------------------//
 import { usePageNation } from '../hooks/_customHookBundle'
 import { PageNation } from '../components/_ComponentBundle'
+import { tabActiveChk } from '../utils/_utilsBunddle'
 
 function Event(props) {
 
-  let { id } = useParams()
-  let eventData = useSelector(state => { return state.event })
-  let [pageItem, pages, currentPage, setCurrentPage] = usePageNation(eventData[id], 9)
+  const { id } = useParams()
+  const eventData = useSelector(state => { return state.event })
+  const [pageItem, pages, currentPage, setCurrentPage] = usePageNation(eventData[id], 9)
 
   useEffect(() => {
     setCurrentPage(1)
@@ -21,10 +22,10 @@ function Event(props) {
       <nav className="page-nav">
         <h1>이벤트</h1>
         <ul>
-          <li className={id === 'ing' ? 'active' : null}>
+          <li className={tabActiveChk('ing', id)}>
             <Link to="/event/ing">진행이벤트</Link>
           </li>
-          <li className={id === 'end' ? 'active' : null}>
+          <li className={tabActiveChk('end', id)}>
             <Link to="/event/end">종료이벤트</Link>
           </li>
         </ul>

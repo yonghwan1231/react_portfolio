@@ -19,21 +19,23 @@ function Product() {
 
   const [
     currentItem,
-    currentCategory, setCurrentCategory,
-    priceFilter, setPriceFilter,
+    currentCategory,
+    setCurrentCategory,
+    priceFilter,
+    setPriceFilter,
     priceMax,
-    priceSetRange, setPriceSetRange,
-    sortType, setSortType] = useFilterItem()
+    priceSetRange,
+    setPriceSetRange,
+    sortType,
+    setSortType
+  ] = useFilterItem()
 
-  const [pageItem, pages, currentPage, setCurrentPage] = usePageNation(currentItem, 12)
-
-  const fillterBoxProps = {
-    priceMax,
-    priceSetRange, setPriceSetRange,
-    priceFilter, setPriceFilter,
-    sortType, setSortType,
+  const [
+    pageItem,
+    pages,
+    currentPage,
     setCurrentPage
-  }
+  ] = usePageNation(currentItem, 12)
 
   useEffect(() => {
     contentRef.current?.scrollIntoView(true)
@@ -81,7 +83,9 @@ function Product() {
               }
             </nav>
 
-            <FilterBox {...fillterBoxProps} />
+            <FilterBox {...{
+              priceMax, priceSetRange, setPriceSetRange, priceFilter, setPriceFilter, sortType, setSortType, setCurrentPage
+            }} />
 
             <section className="page-contents-wrap" ref={contentRef}>
               <h4>총 {currentItem.length}개의 상품이 있습니다.</h4>
@@ -92,8 +96,6 @@ function Product() {
                       <li key={idx}>
                         <figure className="item-img" onClick={() => { navigate('/product/' + el.type + '/' + el.name) }}>
                           <img src={require('../assets/img/' + el.imgURL + '.jpg')} alt="" />
-                          {/* <span className="add-cart"><a href=""><img src={require('../assets/img/ic_add_cart.png')}
-                            alt="" /></a></span> */}
                         </figure>
                         <h3>{el.name}</h3>
                         <p>{priceFormat(el.price)}</p>

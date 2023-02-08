@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 //--------------------------------------------------------//
-import { priceFormat } from '../utils/_utilsBunddle'
+import { priceFormat, priceSum } from '../utils/_utilsBunddle'
 import { PostInput } from '../components/PostInput'
 import { setOrderList } from '../stores/_reducerBundle'
 
@@ -11,7 +11,6 @@ export function Payment() {
   const loginUser = useSelector(state => { return state.loginUser })
   const localCart = useSelector(state => { return state.localCart })
   const orderList = useSelector(state => { return state.orderList })
-  const [totalPrice, setTotalPrice] = useState(0)
   const [totalDiscount, setTotalDiscount] = useState(0)
 
   const [openCouponBox, setOpenCouponBox] = useState(false)
@@ -51,13 +50,6 @@ export function Payment() {
       }
     })
     setUsedCouponList(copy)
-  }
-
-  function priceSum() {
-    let totalCount = orderList.reduce((acc, curr) => {
-      return acc + curr.price * curr.count
-    }, 0)
-    setTotalPrice(totalCount)
   }
 
   const userNameHandler = (e) => {
@@ -101,10 +93,6 @@ export function Payment() {
   useEffect(() => {
     if (loginUser.login) setCouponList([...loginUser.coupon])
   }, [loginUser, localCart])
-
-  useEffect(() => {
-    priceSum()
-  }, [orderList])
 
   useEffect(() => {
     discount()
@@ -304,7 +292,7 @@ export function Payment() {
         </table>
         <ul className="order-wrap">
           <li className="order-price">
-            총 {priceFormat(totalPrice - totalDiscount)}원
+            총 {priceFormat(priceSum(orderList) - totalDiscount)}원
             {
               totalDiscount > 0
                 ? <span className='discount'>(-{priceFormat(totalDiscount)})</span>
