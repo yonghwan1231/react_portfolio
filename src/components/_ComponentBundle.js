@@ -5,5 +5,21 @@ import { FilterBox } from './FilterBox'
 import { PostInput } from './PostInput'
 import { WatchedPopup } from './WatchedPopup'
 import { MainSlider } from './MainSlider'
+import { MainBestItem } from './MainBestItem'
+import { MainLookbook } from './MainLookbook'
+import { MainEventTab } from './MainEventTab'
+import { MainCsInfo } from './MainCsInfo'
 
-export { Header, Footer, PageNation, FilterBox, PostInput, WatchedPopup, MainSlider }
+export {
+  Header,
+  Footer,
+  PageNation,
+  FilterBox,
+  PostInput,
+  WatchedPopup,
+  MainSlider,
+  MainBestItem,
+  MainLookbook,
+  MainEventTab,
+  MainCsInfo
+}
