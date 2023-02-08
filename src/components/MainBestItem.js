@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useSelector } from 'react-redux'
 //--------------------------------------------------------//
-import { priceFormat } from '../utils/_utilsBunddle'
+import { priceFormat, tabActiveChk } from '../utils/_utilsBunddle'
 
 export function MainBestItem(props) {
 
@@ -11,10 +11,6 @@ export function MainBestItem(props) {
   const productData = useSelector(state => { return state.product })
   const [activeProductTab, setActiveProductTab] = useState('전체')
   const [bestItemList, setBestItemList] = useState([])
-
-  function activeChk(state, target) {
-    return state === target ? 'active' : ''
-  }
 
   function changeBestItem() {
     let targetData = []
@@ -44,7 +40,7 @@ export function MainBestItem(props) {
       <h1>베스트 상품</h1>
       <ul className="product-best-nav">
         <li
-          className={activeChk(activeProductTab, '전체')}
+          className={tabActiveChk(activeProductTab, '전체')}
           onClick={() => {
             setActiveProductTab('전체')
           }}
@@ -53,7 +49,7 @@ export function MainBestItem(props) {
           productData.product.map((el, idx) => {
             return <li
               key={idx}
-              className={activeChk(activeProductTab, el.category)}
+              className={tabActiveChk(activeProductTab, el.category)}
               onClick={(e) => {
                 setActiveProductTab(el.category)
               }}

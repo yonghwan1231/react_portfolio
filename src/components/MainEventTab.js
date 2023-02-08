@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import { useSelector } from 'react-redux'
+//--------------------------------------------------------//'
+import { tabActiveChk } from '../utils/_utilsBunddle'
 
 export function MainEventTab(props) {
 
   const eventData = useSelector(state => { return state.event })
   const [activeEventTab, setActiveEventTab] = useState('진행이벤트')
   const [eventList, setEventList] = useState([])
-
-  function activeChk(state, target) {
-    return state === target ? 'active' : ''
-  }
 
   function changeEventList() {
     let targetData = []
@@ -32,14 +30,14 @@ export function MainEventTab(props) {
       <h1 className="title">
         <ul>
           <li
-            className={activeChk(activeEventTab, '진행이벤트')}
+            className={tabActiveChk(activeEventTab, '진행이벤트')}
             onClick={() => {
               setActiveEventTab('진행이벤트')
             }}>
             <Link to='#'>진행이벤트</Link>
           </li>
           <li
-            className={activeChk(activeEventTab, '종료이벤트')}
+            className={tabActiveChk(activeEventTab, '종료이벤트')}
             onClick={() => {
               setActiveEventTab('종료이벤트')
             }}><Link to='#'>종료이벤트</Link>
