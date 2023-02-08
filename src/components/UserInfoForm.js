@@ -85,7 +85,7 @@ export function UserInfoForm(props) {
                     e.preventDefault()
                     if (!userId[1]) return alert('사용 불가능한 아이디 입니다.')
                     axios({
-                      url: 'https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app/dupChk',
+                      url: 'https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app/api/dupChk',
                       method: 'POST',
                       data: { userId: userId[0] }
                     })
