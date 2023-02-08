@@ -4,7 +4,7 @@ import { Routes, Route, } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 //--------------------------------------------------------//
 import { Header, Footer, WatchedPopup } from './components/_ComponentBundle'
-import { Main, Event, LookBook, Login, Join, Mypage, Product, ProductDetail, MyCart, MyLike, MyWatched, Payment, CsCenter } from './pages/_PageBundle'
+import { Main, Event, LookBook, Login, Join, Mypage, Product, ProductDetail, MyCart, MyLike, MyWatched, Payment, CsCenter, CsWrite, CsHistory } from './pages/_PageBundle'
 import { useLoadData, useLoginChk } from './hooks/_customHookBundle'
 import { addLocalCart } from './stores/_reducerBundle';
 
@@ -40,7 +40,10 @@ function App() {
           <Route path=":id" element={<ProductDetail render={render} setRender={setRender} />} />
         </Route>
         <Route path="/payment" element={<Payment />} />
-        <Route path="/cs/:id" element={<CsCenter />} />
+        <Route path="/cs" element={<CsCenter />}>
+          <Route path="write" element={<CsWrite />} />
+          <Route path="history" element={<CsHistory />} />
+        </Route>
       </Routes>
 
       <Footer />

@@ -9,6 +9,8 @@ import { MainBestItem } from './MainBestItem'
 import { MainLookbook } from './MainLookbook'
 import { MainEventTab } from './MainEventTab'
 import { MainCsInfo } from './MainCsInfo'
+import { UserInfoForm } from './UserInfoForm'
+import { CouponBox } from './CouponBox'
 
 export {
   Header,
@@ -21,5 +23,7 @@ export {
   MainBestItem,
   MainLookbook,
   MainEventTab,
-  MainCsInfo
+  MainCsInfo,
+  UserInfoForm,
+  CouponBox
 }

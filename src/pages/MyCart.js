@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
 //--------------------------------------------------------//
+import { CouponBox } from '../components/_ComponentBundle'
 import { priceFormat, priceSum } from '../utils/_utilsBunddle'
 import { useChangeCart, useDeleteCart } from '../hooks/_customHookBundle'
 import { setOrderList } from '../stores/_reducerBundle'
@@ -72,120 +73,59 @@ export function MyCart() {
   }, [usedCouponList])
 
   return (
-    <>
-      <section className="page-contents-wrap">
-        {
-        }
-        <table>
-          <colgroup>
-            <col width="8%" />
-            <col width="36%" />
-            <col width="14%" />
-            <col width="14%" />
-            <col width="14%" />
-            <col width="14%" />
-          </colgroup>
-          <thead>
-            <tr>
-              <th>NO</th>
-              <th>상품명(옵션)</th>
-              <th>판매가</th>
-              <th>수량</th>
-              <th>할인</th>
-              <th>주문관리</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              cartList.map((el, idx) => {
-                return (
-                  <tr key={idx}>
-                    <td>
-                      <div className="cart-contents-box">
-                        {idx + 1}
-                      </div>
-                    </td>
-                    <td className="cart-product-name">
-                      <div className="cart-contents-box">
+    <section className="page-contents-wrap">
+      <table>
+        <colgroup>
+          <col width="8%" />
+          <col width="36%" />
+          <col width="14%" />
+          <col width="14%" />
+          <col width="14%" />
+          <col width="14%" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th>NO</th>
+            <th>상품명(옵션)</th>
+            <th>판매가</th>
+            <th>수량</th>
+            <th>할인</th>
+            <th>주문관리</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            cartList.map((el, idx) => {
+              return (
+                <tr key={idx}>
+                  <td>
+                    <div className="cart-contents-box">
+                      {idx + 1}
+                    </div>
+                  </td>
+                  <td className="cart-product-name">
+                    <div className="cart-contents-box">
 
-                        <figure className="cart-img-wrap">
-                          <img src={require('../assets/img/' + el.imgURL + '.jpg')} alt="" />
-                        </figure>
-                        <p>
-                          {el.name}
-                          <span className="order-option">{el.selectOption}</span>
-                          <strong className={
-                            couponChk(el.name, el.selectOption)
-                              ? "show-mobile sale"
-                              : "show-mobile"
-                          }>
-                            {
-                              couponChk(el.name, el.selectOption)
-                                ? priceFormat((el.price * el.count) - (el.price * couponChk(el.name, el.selectOption)))
-                                : priceFormat(el.price * el.count)
-                            }
-                          </strong>
-                        </p>
-
-                        <div className="cart-contents-box-mobile show-mobile">
-                          <div className="up-down-button">
-                            <button className="count-up"
-                              onClick={(e) => {
-                                e.preventDefault()
-                                changeCart({ type: '-', name: el.name, option: el.selectOption })
-                              }}
-                            >-</button>
-                            <span className="buy-count">{el.count}</span>
-                            <button className="count-down"
-                              onClick={(e) => {
-                                e.preventDefault()
-                                changeCart({ type: '+', name: el.name, option: el.selectOption })
-                              }}
-                            >+</button>
-                          </div>
-                          <button className={
-                            couponChk(el.name, el.selectOption)
-                              ? 'cart-coupon dark'
-                              : 'cart-coupon'
-                          }
-                            onClick={() => {
-                              if (couponChk(el.name, el.selectOption)) {
-                                couponCancel(el.name, el.selectOption)
-                              }
-                              else {
-                                setCouponTarget(el)
-                                setOpenCouponBox(true)
-                              }
-                            }}>
-                            {
-                              couponChk(el.name, el.selectOption)
-                                ? '쿠폰취소'
-                                : '쿠폰적용'
-                            }
-                          </button>
-                          <button className="cart-delete dark"
-                            onClick={() => {
-                              deleteCart(cartList, el.name)
-                            }}>삭제</button>
-                        </div>
-
-                      </div>
-                    </td>
-                    <td>
-                      <div className={
-                        couponChk(el.name, el.selectOption)
-                          ? "cart-contents-box sale"
-                          : "cart-contents-box"
-                      }>
-                        {
+                      <figure className="cart-img-wrap">
+                        <img src={require('../assets/img/' + el.imgURL + '.jpg')} alt="" />
+                      </figure>
+                      <p>
+                        {el.name}
+                        <span className="order-option">{el.selectOption}</span>
+                        <strong className={
                           couponChk(el.name, el.selectOption)
-                            ? priceFormat((el.price * el.count) - (el.price * couponChk(el.name, el.selectOption)))
-                            : priceFormat(el.price * el.count)
-                        }
-                      </div>
-                    </td>
-                    <td>
-                      <div className="cart-contents-box">
+                            ? "show-mobile sale"
+                            : "show-mobile"
+                        }>
+                          {
+                            couponChk(el.name, el.selectOption)
+                              ? priceFormat((el.price * el.count) - (el.price * couponChk(el.name, el.selectOption)))
+                              : priceFormat(el.price * el.count)
+                          }
+                        </strong>
+                      </p>
+
+                      <div className="cart-contents-box-mobile show-mobile">
                         <div className="up-down-button">
                           <button className="count-up"
                             onClick={(e) => {
@@ -201,65 +141,122 @@ export function MyCart() {
                             }}
                           >+</button>
                         </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div className="cart-contents-box">
                         <button className={
                           couponChk(el.name, el.selectOption)
                             ? 'cart-coupon dark'
                             : 'cart-coupon'
-                        } onClick={() => {
-                          if (couponChk(el.name, el.selectOption)) {
-                            couponCancel(el.name, el.selectOption)
-                          }
-                          else {
-                            setCouponTarget(el)
-                            setOpenCouponBox(true)
-                          }
-                        }}>
+                        }
+                          onClick={() => {
+                            if (couponChk(el.name, el.selectOption)) {
+                              couponCancel(el.name, el.selectOption)
+                            }
+                            else {
+                              setCouponTarget(el)
+                              setOpenCouponBox(true)
+                            }
+                          }}>
                           {
                             couponChk(el.name, el.selectOption)
                               ? '쿠폰취소'
                               : '쿠폰적용'
                           }
                         </button>
-                      </div>
-                    </td>
-                    <td>
-                      <div className="cart-contents-box">
                         <button className="cart-delete dark"
                           onClick={() => {
                             deleteCart(cartList, el.name)
-                          }}
-                        >삭제</button>
+                          }}>삭제</button>
                       </div>
-                    </td>
-                  </tr>
-                )
-              })
-            }
 
-          </tbody>
-        </table>
-        <ul className="order-wrap">
-          <li className="order-price">
-            총 {priceFormat(priceSum(cartList) - totalDiscount)}원
-            {
-              totalDiscount > 0
-                ? <span className='discount'>(-{priceFormat(totalDiscount)})</span>
-                : null
+                    </div>
+                  </td>
+                  <td>
+                    <div className={
+                      couponChk(el.name, el.selectOption)
+                        ? "cart-contents-box sale"
+                        : "cart-contents-box"
+                    }>
+                      {
+                        couponChk(el.name, el.selectOption)
+                          ? priceFormat((el.price * el.count) - (el.price * couponChk(el.name, el.selectOption)))
+                          : priceFormat(el.price * el.count)
+                      }
+                    </div>
+                  </td>
+                  <td>
+                    <div className="cart-contents-box">
+                      <div className="up-down-button">
+                        <button className="count-up"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            changeCart({ type: '-', name: el.name, option: el.selectOption })
+                          }}
+                        >-</button>
+                        <span className="buy-count">{el.count}</span>
+                        <button className="count-down"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            changeCart({ type: '+', name: el.name, option: el.selectOption })
+                          }}
+                        >+</button>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="cart-contents-box">
+                      <button className={
+                        couponChk(el.name, el.selectOption)
+                          ? 'cart-coupon dark'
+                          : 'cart-coupon'
+                      } onClick={() => {
+                        if (couponChk(el.name, el.selectOption)) {
+                          couponCancel(el.name, el.selectOption)
+                        }
+                        else {
+                          setCouponTarget(el)
+                          setOpenCouponBox(true)
+                        }
+                      }}>
+                        {
+                          couponChk(el.name, el.selectOption)
+                            ? '쿠폰취소'
+                            : '쿠폰적용'
+                        }
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="cart-contents-box">
+                      <button className="cart-delete dark"
+                        onClick={() => {
+                          deleteCart(cartList, el.name)
+                        }}
+                      >삭제</button>
+                    </div>
+                  </td>
+                </tr>
+              )
+            })
+          }
 
-            }
-          </li>
-          <li className="order-button">
-            <button className="dark" onClick={() => {
-              dispatch(setOrderList([...cartList]))
-              navigate('/payment')
-            }}>주문하기</button>
-          </li>
-        </ul>
-      </section>
+        </tbody>
+      </table>
+      <ul className="order-wrap">
+        <li className="order-price">
+          총 {priceFormat(priceSum(cartList) - totalDiscount)}원
+          {
+            totalDiscount > 0
+              ? <span className='discount'>(-{priceFormat(totalDiscount)})</span>
+              : null
+
+          }
+        </li>
+        <li className="order-button">
+          <button className="dark" onClick={() => {
+            dispatch(setOrderList([...cartList]))
+            navigate('/payment')
+          }}>주문하기</button>
+        </li>
+      </ul>
       {
         openCouponBox &&
         <CouponBox
@@ -271,75 +268,6 @@ export function MyCart() {
           setUsedCouponList={setUsedCouponList}
         />
       }
-    </>
-  )
-}
-
-function CouponBox(props) {
-
-  const { setOpenCouponBox, couponTarget, couponList, setCouponList, usedCouponList, setUsedCouponList } = props
-
-  function loadCouponList(coupon) {
-
-    let copyList = [...couponList]
-    copyList.forEach((el, idx) => {
-      if (el.name === coupon.name) {
-        copyList.splice(idx, 1)
-        return
-      }
-    })
-    setCouponList(copyList)
-
-    const applyTarget = {
-      ...couponTarget,
-      coupon
-    }
-    let copyUsed = [...usedCouponList]
-    copyUsed.push(applyTarget)
-    setUsedCouponList(copyUsed)
-    setOpenCouponBox(false)
-  }
-
-  return (
-    <aside className='coupon-wrap'>
-      <div className='coupon-box'>
-        <button className='button-close' onClick={() => { setOpenCouponBox(false) }}></button>
-        <h1>쿠폰선택</h1>
-        <div className='coupon-list'>
-          <table>
-            <colgroup>
-              <col width="40%" />
-              <col width="20%" />
-              <col width="20%" />
-              <col width="20%" />
-            </colgroup>
-            <thead>
-              <tr>
-                <th>쿠폰명</th>
-                <th>할인율</th>
-                <th>기한</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-                couponList.map((el, idx) => {
-                  return (
-                    <tr key={idx}>
-                      <td>{el.name}</td>
-                      <td>{el.percentage}%</td>
-                      <td>{el.period}</td>
-                      <td><button className='dark'
-                        onClick={() => { loadCouponList(el) }}
-                      >적용</button></td>
-                    </tr>
-                  )
-                })
-              }
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </aside >
+    </section>
   )
 }

@@ -11,5 +11,23 @@ import { MyLike } from './MyLike'
 import { MyWatched } from './MyWatched'
 import { Payment } from './Payment'
 import { CsCenter } from './CsCenter'
+import { CsWrite } from './CsWrite'
+import { CsHistory } from './CsHistory'
 
-export { Main, Event, LookBook, Login, Join, Mypage, Product, ProductDetail, MyCart, MyLike, MyWatched, Payment, CsCenter }
+export {
+  Main,
+  Event,
+  LookBook,
+  Login,
+  Join,
+  Mypage,
+  Product,
+  ProductDetail,
+  MyCart,
+  MyLike,
+  MyWatched,
+  Payment,
+  CsCenter,
+  CsWrite,
+  CsHistory
+}

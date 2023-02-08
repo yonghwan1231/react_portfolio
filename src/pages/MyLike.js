@@ -14,9 +14,9 @@ export function MyLike() {
   const pushLike = usePushLike()
   const navigete = useNavigate()
 
-  let [pageItem, pages, currentPage, setCurrentPage] = usePageNation(likeList, 12)
+  const [pageItem, pages, currentPage, setCurrentPage] = usePageNation(likeList, 12)
 
-  function loadWatchedList() {
+  function loadLikeList() {
     if (!loginUser.login) return;
     let userLike = [...loginUser.like]
     let list = []
@@ -36,7 +36,7 @@ export function MyLike() {
   }
 
   useEffect(() => {
-    loadWatchedList()
+    loadLikeList()
   }, [loginUser, product])
 
   return (
