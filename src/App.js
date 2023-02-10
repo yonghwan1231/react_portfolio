@@ -1,17 +1,18 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { Routes, Route, } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 //--------------------------------------------------------//
-import { Header, Footer, WatchedPopup } from './components/_ComponentBundle'
+import { Header, Footer, WatchedPopup, FunctionGuide } from './components/_ComponentBundle'
 import { Main, Event, LookBook, Login, Join, Mypage, Product, ProductDetail, MyCart, MyLike, MyWatched, Payment, CsCenter, CsWrite, CsHistory } from './pages/_PageBundle'
 import { useLoadData, useLoginChk } from './hooks/_customHookBundle'
 import { addLocalCart } from './stores/_reducerBundle';
 
 function App() {
 
-  const [axiosComplete, axiosReq] = useLoadData()
+  const { pathname } = useLocation()
   const [render, setRender] = useState(true)
+  const [axiosComplete, axiosReq] = useLoadData()
   const loginChk = useLoginChk()
   const dispatch = useDispatch()
 
@@ -20,6 +21,10 @@ function App() {
     loginChk()
     dispatch(addLocalCart())
   }, [])
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
 
   if (axiosComplete) return (
     <>
@@ -49,6 +54,8 @@ function App() {
       <Footer />
 
       <WatchedPopup />
+      <FunctionGuide />
+
     </>
   );
 }

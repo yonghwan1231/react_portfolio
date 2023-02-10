@@ -11,6 +11,7 @@ import { MainEventTab } from './MainEventTab'
 import { MainCsInfo } from './MainCsInfo'
 import { UserInfoForm } from './UserInfoForm'
 import { CouponBox } from './CouponBox'
+import { FunctionGuide } from './FunctionGuide'
 
 export {
   Header,
@@ -25,5 +26,6 @@ export {
   MainEventTab,
   MainCsInfo,
   UserInfoForm,
-  CouponBox
+  CouponBox,
+  FunctionGuide
 }

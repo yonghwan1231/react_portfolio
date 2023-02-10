@@ -1,0 +1,129 @@
+.function-guied-wrap {
+  position: fixed;
+  left: 50%;
+  bottom: 50%;
+  padding: 30px 0;
+  width: 680px;
+  max-width: 96vw;
+  height: auto;
+  transform: translate(-50%, 50%);
+  transform-origin: 0 100%;
+  background-color: #fff;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  overflow: hidden;
+  visibility: visible;
+  transition: all .6s;
+
+  &.hide {
+    left: 360px;
+    bottom: 274px;
+    transform: translate(-50%, 50%) scale(0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: all .6s;
+
+    @include mobile {
+      left: calc(48vw + 20px);
+    }
+  }
+
+  header {
+    text-align: center;
+    position: static;
+    padding: 0 12px;
+
+    h1 {
+      margin-bottom: 8px;
+
+      @include mobile {
+        font-size: 20px;
+      }
+    }
+
+    span {
+      font-size: 14px;
+      color: red;
+
+      @include mobile {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .function-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 24px 0;
+
+    .function-type {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 25%;
+      height: 40px;
+      border-left: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      cursor: pointer;
+
+      @include mobile {
+        font-size: 13px;
+      }
+
+      &:nth-of-type(4n+1) {
+        border-left: none;
+      }
+
+      &:not(:nth-of-type(n+5)) {
+        border-top: 1px solid #ccc;
+      }
+
+      &.active {
+        color: #fff;
+        background-color: #000;
+      }
+    }
+  }
+
+  div {
+    padding: 0 24px;
+    height: 200px;
+    overflow-y: scroll;
+
+    dl {
+
+      dd {
+        margin-bottom: 12px;
+
+        @include mobile {
+          font-size: 14px;
+        }
+
+        &::before {
+          content: '-';
+        }
+
+      }
+    }
+  }
+}
+
+.function-guied-icon {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 48px;
+  }
+}
