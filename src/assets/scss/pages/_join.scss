@@ -226,6 +226,9 @@
             }
 
             li {
+              display: flex;
+              align-items: center;
+
               @include mobile {
                 margin-bottom: 12px;
               }
@@ -235,6 +238,11 @@
                 height: 200px;
                 border: 1px solid #ccc;
                 overflow-y: scroll;
+              }
+
+              input {
+                margin-top: 1px;
+                margin-right: 4px;
               }
             }
           }

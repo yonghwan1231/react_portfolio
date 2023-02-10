@@ -48,6 +48,14 @@
     margin-top: 16px;
     font-size: 14px;
 
+    .login-save-id {
+      display: flex;
+
+      input {
+        margin-right: 4px;
+      }
+    }
+
     .find-account {
       margin-left: 12px;
       padding-left: 12px;
