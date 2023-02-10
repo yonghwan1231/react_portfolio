@@ -265,7 +265,7 @@ export function UserInfoForm(props) {
             const chk = formChk(agreement1, agreement2, dupChk, userName, userId, userPw, userPwCfm, userEmail, userHp, agreement1, agreement2)
             if (chk) {
               axios({
-                url: 'https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app/join',
+                url: 'https://port-0-portfolio-server-private-4y6tt2blds7g9x0.sel3.cloudtype.app/api/join',
                 method: 'POST',
                 data: { userData }
               })
