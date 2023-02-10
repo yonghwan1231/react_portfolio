@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link, useParams, useNavigate, Outlet } from "react-router-dom"
 import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 export function CsCenter() {
 
@@ -9,10 +10,18 @@ export function CsCenter() {
   const loginUser = useSelector(state => { return state.loginUser })
 
   useEffect(() => {
-    if (!loginUser.login) {
-      alert('로그인 후 이용 가능합니다.')
-      navigate('/')
-    }
+    axios({
+      url: 'http://localhost:8080/api/accesstoken',
+      method: 'GET',
+      withCredentials: true
+    })
+      .then((res) => {
+        console.log('로그인체크 응답성공')
+      })
+      .catch(() => {
+        alert('로그인 후 이용 가능합니다.')
+        navigate('/')
+      })
   }, [loginUser])
 
   return (
