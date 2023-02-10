@@ -38,9 +38,6 @@ function ProductDetail(props) {
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 0);
     setDetailPage(true);
     return () => {
       setDetailPage(false);
