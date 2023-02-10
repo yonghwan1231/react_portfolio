@@ -9,6 +9,7 @@ import { userPwHandler } from './userPwHandler'
 import { userPwCfmHandler } from './userPwCfmHandler'
 import { userEmailHandler } from './userEmailHandler'
 import { userHpHandler } from './userHpHandler'
+import { textLengthLimit } from './textLengthLimit'
 
 export {
   numberChk,
@@ -21,5 +22,6 @@ export {
   userPwHandler,
   userPwCfmHandler,
   userEmailHandler,
-  userHpHandler
+  userHpHandler,
+  textLengthLimit
 }

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 //--------------------------------------------------------//
 import { PostInput } from '../components/_ComponentBundle'
-import { userNameHandler, userIdHandler, userPwHandler, userPwCfmHandler, userEmailHandler, userHpHandler } from '../utils/_utilsBunddle'
+import { userNameHandler, userIdHandler, userPwHandler, userPwCfmHandler, userEmailHandler, userHpHandler, textLengthLimit } from '../utils/_utilsBunddle'
 
 export function UserInfoForm(props) {
 
@@ -58,7 +58,10 @@ export function UserInfoForm(props) {
                   placeholder="필수입력"
                   required
                   value={userName[0]}
-                  onChange={(e) => { setUserName(userNameHandler(e)) }} />
+                  onChange={(e) => {
+                    textLengthLimit(e, 20)
+                    setUserName(userNameHandler(e))
+                  }} />
                 {
                   !userName[1] && userName[0].length !== 0 &&
                   <p className="desc">한글만 입력해 주세요.</p>
@@ -153,7 +156,10 @@ export function UserInfoForm(props) {
                   type="email"
                   placeholder="선택사항"
                   value={userEmail[0]}
-                  onChange={(e) => { setUserEmail(userEmailHandler(e)) }} />
+                  onChange={(e) => {
+                    textLengthLimit(e, 100)
+                    setUserEmail(userEmailHandler(e))
+                  }} />
                 {
                   !userEmail[1] && userEmail[0].length !== 0 &&
                   <p className="desc">입력을 생략하거나 올바른 이메일 주소를 입력하세요.</p>

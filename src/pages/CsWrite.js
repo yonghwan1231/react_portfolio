@@ -1,6 +1,7 @@
 import { useState } from 'react';
 //--------------------------------------------------------//
 import { useInqueryWrite } from '../hooks/_customHookBundle'
+import { textLengthLimit } from '../utils/_utilsBunddle'
 
 export function CsWrite() {
 
@@ -18,17 +19,19 @@ export function CsWrite() {
             placeholder='30자 제한'
             value={inquiryTitle}
             onChange={(e) => {
-              if (e.target.value.length > 30) {
-                e.target.value = e.target.value.slice(0, 29)
-              }
+              textLengthLimit(e, 30)
               setInquiryTitle(e.target.value)
             }}></input>
         </div>
         <div className="write-contents">
           <h1>내용</h1>
-          <textarea value={inquiryContents} onChange={(e) => {
-            setInquiryContents(e.target.value)
-          }}></textarea>
+          <textarea
+            placeholder='1000자 제한'
+            value={inquiryContents}
+            onChange={(e) => {
+              textLengthLimit(e, 1000)
+              setInquiryContents(e.target.value)
+            }}></textarea>
         </div>
         <div className="button-wrap">
           <button onClick={(e) => {

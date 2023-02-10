@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import DaumPostcode from "react-daum-postcode";
+//--------------------------------------------------------//
+import { textLengthLimit } from '../utils/_utilsBunddle'
 
 export function PostInput(props) {
 
@@ -43,7 +45,10 @@ export function PostInput(props) {
           }}>주소검색</button>
         </li>
         <li><input type="text" name="" value={userAddr.addr} readOnly /></li>
-        <li><input type="text" name="" value={userAddr.detailAddr} onChange={detailAddr} /></li>
+        <li><input type="text" name="" placeholder="상세주소" value={userAddr.detailAddr} onChange={(e) => {
+          textLengthLimit(e, 100)
+          detailAddr(e)
+        }} /></li>
       </ul>
       {
         findPost

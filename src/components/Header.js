@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 //--------------------------------------------------------//
 import { sendSearchWord, addLocalCart } from '../stores/_reducerBundle'
 import { useLogout, useAddCart } from '../hooks/_customHookBundle'
+import { textLengthLimit } from '../utils/_utilsBunddle'
 
 function Header(props) {
 
@@ -42,6 +43,7 @@ function Header(props) {
         <div className="search-bar show-desktop">
           <form action="">
             <input type="text" placeholder="검색어를 입력해 주세요." value={wordUpdate} onChange={(e) => {
+              textLengthLimit(e, 20)
               setWordUpdate(e.target.value)
             }} />
             <button type="submit" onClick={(e) => {

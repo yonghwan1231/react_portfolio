@@ -3,6 +3,7 @@ import axios from 'axios';
 //--------------------------------------------------------//
 import { useInqueryEdit, useInqueryDelete, usePageNation } from '../hooks/_customHookBundle'
 import { PageNation } from '../components/_ComponentBundle'
+import { textLengthLimit } from '../utils/_utilsBunddle'
 
 export function CsHistory() {
 
@@ -82,6 +83,7 @@ export function CsHistory() {
                     type="text"
                     className={editMode ? '' : 'read-only'}
                     readOnly={!editMode}
+                    placeholder="30자 제한"
                     value={
                       editMode
                         ? editPost && editPost.title
@@ -89,6 +91,7 @@ export function CsHistory() {
                     }
                     onChange={(e) => {
                       let copy = { ...editPost }
+                      textLengthLimit(e, 30)
                       copy.title = e.target.value
                       setEditPost(copy)
                     }}></input>
@@ -98,6 +101,7 @@ export function CsHistory() {
                   <textarea
                     className={editMode ? '' : 'read-only'}
                     readOnly={!editMode}
+                    placeholder="1000자 제한"
                     value={
                       editMode
                         ? editPost && editPost.contents
@@ -105,6 +109,7 @@ export function CsHistory() {
                     }
                     onChange={(e) => {
                       let copy = { ...editPost }
+                      textLengthLimit(e, 1000)
                       copy.contents = e.target.value
                       setEditPost(copy)
                     }}></textarea>
