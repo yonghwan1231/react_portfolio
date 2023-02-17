@@ -14,6 +14,7 @@
   overflow: hidden;
   visibility: visible;
   transition: all .6s;
+  z-index: 100;
 
   &.hide {
     left: 360px;
