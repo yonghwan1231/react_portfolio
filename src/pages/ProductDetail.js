@@ -168,8 +168,13 @@ function ProductDetail(props) {
               }
             }}>장바구니</button>
             <button className="button-buy" onClick={() => {
-              dispatch(setOrderList(selectItem))
-              navigate('/payment')
+              if (selectItem.length > 0) {
+                dispatch(setOrderList(selectItem))
+                navigate('/payment')
+              }
+              else {
+                alert('구매할 상품이 없습니다.')
+              }
             }}>구매하기</button>
           </div>
         </div>

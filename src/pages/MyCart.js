@@ -252,9 +252,14 @@ export function MyCart() {
         </li>
         <li className="order-button">
           <button className="dark" onClick={() => {
-            dispatch(setOrderList([...cartList]))
-            navigate('/payment')
-          }}>주문하기</button>
+            if (cartList.length > 0) {
+              dispatch(setOrderList([...cartList]))
+              navigate('/payment')
+            }
+            else {
+              alert('구매할 상품이 없습니다.')
+            }
+          }}>구매하기</button>
         </li>
       </ul>
       {
