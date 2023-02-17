@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate, Outlet } from "react-router-dom"
 import { useSelector } from 'react-redux';
 import axios from 'axios';
@@ -8,6 +8,7 @@ export function CsCenter() {
   let { id } = useParams()
   const navigate = useNavigate()
   const loginUser = useSelector(state => { return state.loginUser })
+  const [loginState, setLoginStatae] = useState(false)
 
   useEffect(() => {
     axios({
@@ -16,7 +17,7 @@ export function CsCenter() {
       withCredentials: true
     })
       .then((res) => {
-        console.log('로그인체크 응답성공')
+        setLoginStatae(true)
       })
       .catch(() => {
         alert('로그인 후 이용 가능합니다.')
@@ -24,7 +25,7 @@ export function CsCenter() {
       })
   }, [loginUser])
 
-  return (
+  if (loginState) return (
     <div className='cs-center page-wrap'>
       <nav className="page-nav">
         <h1>고객센터</h1>
