@@ -35,7 +35,6 @@ export function CsWrite() {
           ></textarea>
         </div>
         <div className="button-wrap">
-          <input type="file" capture="camera" />
           <button
             onClick={e => {
               e.preventDefault();
